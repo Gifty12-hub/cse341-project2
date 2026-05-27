@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+const cors = require('cors');  
 
 const booksRouter = require('./routes/books');
 const authorsRouter = require('./routes/authors');
@@ -11,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors()); 
 app.use(express.json());
 
 // Swagger setup

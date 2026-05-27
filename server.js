@@ -24,9 +24,12 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.NODE_ENV === 'production'
-          ? 'https://your-app.onrender.com'
-          : `http://localhost:${PORT}`,
+        url: 'https://cse341-project2.onrender.com',
+        description: 'Production (Render)',
+      },
+      {
+        url: 'http://localhost:3000',
+        description: 'Local development',
       },
     ],
   },

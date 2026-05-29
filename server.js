@@ -46,7 +46,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'https://cse341-project2-smh8.onrender.com',
+        url: 'https://cse341-project2-18fr.onrender.com',
         description: 'Production (Render)',
       },
       {

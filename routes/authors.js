@@ -7,6 +7,17 @@ const {
   deleteAuthor,
 } = require('../controllers/authorsController');
 
+const { isAuthenticated } = require('../middleware/auth');
+
+// Protected routes — require login
+router.post('/', isAuthenticated, createBook);
+router.put('/:id', isAuthenticated, updateBook);
+router.delete('/:id', isAuthenticated, deleteBook);
+
+// Public routes — no login needed
+router.get('/', getAllAuthors);
+router.get('/:id', getAuthorById);
+
 /**
  * @swagger
  * tags:
@@ -160,5 +171,7 @@ router.put('/:id', updateAuthor);
  *         description: Server error
  */
 router.delete('/:id', deleteAuthor);
+
+
 
 module.exports = router;

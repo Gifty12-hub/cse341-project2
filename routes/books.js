@@ -7,6 +7,17 @@ const {
   deleteBook,
 } = require('../controllers/booksController');
 
+const { isAuthenticated } = require('../middleware/auth');
+
+// Protected routes — require login
+router.post('/', isAuthenticated, createBook);
+router.put('/:id', isAuthenticated, updateBook);
+router.delete('/:id', isAuthenticated, deleteBook);
+
+// Public routes — no login needed
+router.get('/', getAllBooks);
+router.get('/:id', getBookById);
+
 /**
  * @swagger
  * tags:
